@@ -1,3 +1,7 @@
+<script context="module">
+	export const autoscroll = false;
+</script>
+
 <script>
 	import HomeAbout from '$lib/components/HomeAbout.svelte';
 	import HomeBrands from '$lib/components/HomeBrands.svelte';

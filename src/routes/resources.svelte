@@ -1,3 +1,7 @@
+<script context="module">
+	export const autoscroll = false;
+</script>
+
 <script lang="ts">
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import ResourceItem from '$lib/components/ResourceItem.svelte';
@@ -28,7 +32,7 @@
 				<div class="resources-container">
 					<h1 class="text-theme-orange text-center text-uppercase">Search this collection</h1>
 					<SearchControl />
-					<div class="resource-list">
+					<div class="resource-list pr-1 scrollbar scrollbar-rounded">
 						<ResourceItem />
 						<ResourceItem />
 						<ResourceItem />

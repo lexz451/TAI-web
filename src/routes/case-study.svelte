@@ -1,3 +1,7 @@
+<script context="module">
+	export const autoscroll = false;
+</script>
+
 <script lang="ts">
 	import DarkOverlayImg from '$lib/assets/images/background/overlay-1.png';
 	import GreenOverlayImg from '$lib/assets/images/background/overlay-green.png';
@@ -10,11 +14,15 @@
 	import { fade } from 'svelte/transition';
 </script>
 
+<svelte:head>
+	<title>Transparency & Accountability Initiative | Case Study</title>
+</svelte:head>
+
 <div class="case-study-page page">
 	<IntersectionObserver let:top>
 		<section id="section-1" class="content-split-container section z-1 bg-theme-blue">
 			<div class="left-background" style="background-image: url({LeftBgImg});">
-				<div class="overlay" style="background-image: url({DarkOverlayImg});" />
+				<div class="background-overlay" />
 			</div>
 			<div class="left-container" transition:fade={{ duration: 200, delay: 0 }}>
 				<h1 class="text-theme-green fw-light">
@@ -56,8 +64,8 @@
 								<button class="btn btn-orange btn-sm">Contact</button>
 							</div>
 							<div class="right-content">
-								<span class="text-uppercase">Details</span>
-								<p class="text-gray mt-2">
+								<span class="text-uppercase fw-bold">Details</span>
+								<p class="mt-2">
 									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
 									euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
 									minim veniam,
@@ -84,8 +92,8 @@
 								<button class="btn btn-orange btn-sm">Contact</button>
 							</div>
 							<div class="right-content">
-								<span class="text-uppercase">Details</span>
-								<p class="text-gray mt-2">
+								<span class="text-uppercase fw-bold">Details</span>
+								<p class="mt-2">
 									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
 									euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
 									minim veniam,
@@ -112,8 +120,8 @@
 								<button class="btn btn-orange btn-sm">Contact</button>
 							</div>
 							<div class="right-content">
-								<span class="text-uppercase">Details</span>
-								<p class="text-gray mt-2">
+								<span class="text-uppercase fw-bold">Details</span>
+								<p class="mt-2">
 									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
 									euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
 									minim veniam,
@@ -153,8 +161,8 @@
 			<div class="inner">
 				<div class="inner-left" style="background-image: url({InnerLeftBgImg});">
 					<!-- <div class="overlay" style="background-image: url({GreenOverlayImg});" /> -->
-					<div class="overlay" style="background-image: url({DarkOverlayImg});" />
-					<div class="overlay" style="background-image: url({DarkOverlayImg});" />
+					<div class="background-overlay" />
+					<!-- <div class="overlay" style="background-image: url({DarkOverlayImg});" /> -->
 
 					<div class="content">
 						<h1 class="text-white">Go further!</h1>
@@ -173,7 +181,7 @@
 	#section-1 {
 		.study-cases-container {
 			.heading {
-				padding: 4rem;
+				padding: 3rem;
 				display: flex;
 				justify-content: space-between;
 				&-left {
@@ -232,6 +240,10 @@
 						width: 50%;
 						display: flex;
 						flex-direction: column;
+
+						p {
+							color: #666;
+						}
 						.actions {
 							display: flex;
 							align-items: center;
@@ -263,17 +275,11 @@
 			justify-content: flex-end;
 			background-size: cover;
 			background-repeat: no-repeat;
-			background-position-x: -118px;
+			background-position: 0;
 			position: relative;
 			.content {
 				z-index: 1;
 				padding: 4rem;
-			}
-			.overlay {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				mix-blend-mode: multiply;
 			}
 		}
 	}

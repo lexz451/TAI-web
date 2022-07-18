@@ -2,6 +2,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { extractorSvelte } from '@unocss/core';
 import presetUno from '@unocss/preset-uno';
 import presetWebFonts from '@unocss/preset-web-fonts';
+import { presetScrollbar } from 'unocss-preset-scrollbar';
 import UnoCss from 'unocss/vite';
 import { imagetools } from 'vite-imagetools';
 
@@ -23,6 +24,10 @@ const config = {
 							weights: ['100', '300', '400', '700', '900']
 						}
 					}
+				}),
+				presetScrollbar({
+					scrollbarThumbColor: '#D5D5D5',
+					scrollbarTrackColor: 'transparent'
 				})
 				// presetIcons({
 				// 	extraProperties: {

@@ -1,8 +1,8 @@
 <script context="module" lang="ts">
-	export const load = async (props: any) => {
+	export const load = async ({ url }: { url: any }) => {
 		//console.log(props);
 		return {
-			props: { url: props.url }
+			props: { url }
 		};
 	};
 </script>
@@ -13,17 +13,26 @@
 	import 'uno.css';
 	import '@unocss/reset/normalize.css';
 	import PageTransition from '$lib/components/PageTransition.svelte';
+	import { onMount } from 'svelte';
 
 	export let url: any;
+
+	import { page } from '$app/stores';
+
+	onMount(() => {
+		console.log(url);
+	});
 </script>
 
 <header>
 	<Navbar />
 	<Sidebar />
 </header>
-<PageTransition {url}>
-	<main><slot /></main>
-</PageTransition>
+<main>
+	<PageTransition url={$page.url.pathname}>
+		<slot />
+	</PageTransition>
+</main>
 
 <style lang="scss" global>
 	:root {
@@ -42,6 +51,7 @@
 	body {
 		padding: 0;
 		margin: 0;
+		//scroll-behavior: smooth;
 	}
 
 	#app {
@@ -53,7 +63,7 @@
 		}
 		main section {
 			position: relative;
-			min-height: 100vh;
+			//min-height: 100vh;
 		}
 	}
 

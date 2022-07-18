@@ -21,6 +21,7 @@
 		{/if}
 		<div class="inner">
 			<div class="inner-left bg-theme-orange">
+				<div class="background-overlay" />
 				<img src="$lib/assets/images/background/people.png" alt="" />
 				<div class="content">
 					<h1 class="text-large text-white mr-auto">How has it been done?</h1>
@@ -45,9 +46,11 @@
 		position: relative;
 		flex-direction: column;
 		overflow: hidden;
+		padding: 0;
 	}
 	.inner .inner-left .content {
 		z-index: 1;
+		padding: 4rem;
 	}
 	.inner .inner-left img {
 		position: absolute;

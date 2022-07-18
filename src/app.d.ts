@@ -6,6 +6,8 @@
 
 declare module 'svelte-image'
 
+declare module 'svelte-collapsible'
+
 declare namespace App {
 	// interface Locals {}
 	// interface Platform {}

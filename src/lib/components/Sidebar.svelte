@@ -48,7 +48,7 @@
 
 		{#if scrollY == 0}
 			<div class="sidebar__scroller mt-auto" transition:fade={{ duration: 200 }}>
-				<h4 class="text-orange">Learn More</h4>
+				<h4 class="text-theme-orange">Learn More</h4>
 				<img src={IconArrow} alt="" />
 			</div>
 		{/if}

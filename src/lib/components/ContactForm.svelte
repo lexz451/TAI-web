@@ -9,17 +9,17 @@
 		design of their strategies, both institutionally and programmatically.
 	</p>
 
-	<p class="text-gray">
+	<p class="text-gray mb-4">
 		The Transparency and Accountability Initative (TAI) has built this library to illuminate what is
 		(and isn't) a participatory strategy and describe how funders and nonproﬁts have designed and
 		executed their participatory strategic processes.
 	</p>
 	<br />
-	<p class="fw-bold">
+	<small class="fw-bold mb-4">
 		If you have any questions or comments, please feel free to write to us at
 		<a href="mailto:contact@transparency-initatve.org">contact@transparency-initative.org</a>
 		or reach out through this contact form.
-	</p>
+	</small>
 
 	<input class="form-control" type="text" name="name" placeholder="Name" />
 	<input class="form-control" type="email" name="email" placeholder="Email" />
@@ -39,7 +39,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 4rem;
+		padding: 3rem;
 		background-color: #f6f6f6;
 	}
 

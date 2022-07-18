@@ -350,6 +350,11 @@
     "@unocss/core" "0.44.2"
     unconfig "^0.3.4"
 
+"@unocss/core@0.31.17":
+  version "0.31.17"
+  resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.31.17.tgz#e4f74f0495b8c395f6b0090dbcb371d3ce5d40c7"
+  integrity sha512-DJ3Uk2ePVXvV1qQmgoLK44aqB6f0s+naOEvouI97nzVXDZgxDQPBxIPB/L4vvE4U+gQxEiHwwE3gJ75iPqVzXw==
+
 "@unocss/core@0.44.2", "@unocss/core@^0.44.2":
   version "0.44.2"
   resolved "https://registry.yarnpkg.com/@unocss/core/-/core-0.44.2.tgz#1d4bdf44f3b9ea3e65dcd1221917f7dacc9f39da"
@@ -385,6 +390,13 @@
   integrity sha512-tbuArrrW5vP25EnRj8MHRJYIjZRsNukmgWtSpiHHmsE6/2eDo5T00NSO5eQQIwtrlxM8j2qFjnZUV/FEZ/SMhg==
   dependencies:
     "@unocss/core" "0.44.2"
+
+"@unocss/preset-mini@^0.31.13":
+  version "0.31.17"
+  resolved "https://registry.yarnpkg.com/@unocss/preset-mini/-/preset-mini-0.31.17.tgz#847168f1abe55d44f3e9aa6128ad3cb516ba471b"
+  integrity sha512-gVgMTOKLt3O1ym348QIBmR5sS9W0Ozkk5xelhH6e0VXcpg0dXDPDrl4hFErMy4x6IB86yyJG6Dz5JhcwQB13Ig==
+  dependencies:
+    "@unocss/core" "0.31.17"
 
 "@unocss/preset-tagify@0.44.2":
   version "0.44.2"
@@ -2175,6 +2187,18 @@ svelte-check@^2.7.1:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
+svelte-collapse@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/svelte-collapse/-/svelte-collapse-0.0.4.tgz#c8ac6141213563b1496c593f179e662db6221001"
+  integrity sha512-TXG836Uhn6SzDFsB3PIHBTormEl45Eb0denD34nYz1zM4PeArh5OYN6G3ZGmMHpG7DAHhRaEX5ikDpHfk2JNcA==
+
+svelte-collapsible@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/svelte-collapsible/-/svelte-collapsible-0.2.1.tgz#e71cbafffc81fdb88004853f76a3334f51aa44ef"
+  integrity sha512-aa916eRugYB5NtUZh4GjUIQjbuLtSLRRrVd2LzemmOXi0dDPzANcxYJ/ZI9r+GtFh/wUJtRX5rK9A03sAbfi9Q==
+  dependencies:
+    svelte-collapse "^0.0.4"
+
 svelte-hmr@^0.14.12:
   version "0.14.12"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.14.12.tgz#a127aec02f1896500b10148b2d4d21ddde39973f"
@@ -2346,6 +2370,13 @@ undici@^5.2.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/undici/-/undici-5.7.0.tgz#979f89229c01505573cb274d0e11ea8d82b4004f"
   integrity sha512-ORgxwDkiPS+gK2VxE7iyVeR7JliVn5DqhZ4LgQqYLBXsuK+lwOEmnJ66dhvlpLM0tC3fC7eYF1Bti2frbw2eAA==
+
+unocss-preset-scrollbar@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/unocss-preset-scrollbar/-/unocss-preset-scrollbar-0.2.1.tgz#6de889c2522122e2f0222f392b02bdcd8033d306"
+  integrity sha512-7ubHdOaUwr7xBn1glPpICNNsM2SZGjvWK5uRPNiQYsrZ9YFjsCGHk9x5S2R8pTkuMDQeiaSa/UQbYhjC8Fra5g==
+  dependencies:
+    "@unocss/preset-mini" "^0.31.13"
 
 unocss@^0.44.2:
   version "0.44.2"
