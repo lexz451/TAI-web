@@ -10,9 +10,9 @@
 
 <style lang="scss">
 	.navbar {
-		width: 100%;
+		width: 425px;
 		position: fixed;
-		z-index: 1;
+		z-index: 10;
 		margin-left: 120px;
 		padding: 2.5rem;
 		.navbar-brand img {

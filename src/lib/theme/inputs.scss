@@ -1,0 +1,18 @@
+.form-control {
+	appearance: none;
+	width: 100%;
+	margin-bottom: 0.5rem;
+	background-color: rgba($color: #00d8ad, $alpha: 0.3);
+	border: none;
+	border-radius: 5px;
+	padding: 0.65rem 1rem;
+	outline: none;
+	border: 2px solid transparent;
+	font-style: italic;
+	font-weight: 300;
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	&:focus {
+		border: 2px solid #00d8ad;
+	}
+}

@@ -1,0 +1,34 @@
+.btn {
+	appearance: none;
+	border-radius: 25px;
+	padding: 0.75rem 1rem;
+	min-width: 200px;
+	border: none;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.btn-sm {
+	min-width: 120px;
+}
+
+.btn-green {
+	background-color: var(--theme-green);
+}
+
+.btn-orange {
+	background-color: var(--theme-orange);
+	color: #fafafa;
+}
+
+.btn-outline-green {
+	border: 2px solid var(--theme-green);
+	background-color: transparent;
+	color: #fafafa;
+}
+
+.btn-outline-light {
+	border: 2px solid #fafafa;
+	background-color: transparent;
+	color: #fafafa;
+}

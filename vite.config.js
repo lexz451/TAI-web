@@ -24,6 +24,17 @@ const config = {
 						}
 					}
 				})
+				// presetIcons({
+				// 	extraProperties: {
+				// 		display: 'inline-block',
+				// 		'vertical-align': 'middle'
+				// 	},
+				// 	collections: {
+				// 		icons: {
+				// 			link: () => fs.readFile('./src/lib/assets/icons/link.svg', 'utf-8')
+				// 		}
+				// 	}
+				// })
 			]
 		}),
 		imagetools({})

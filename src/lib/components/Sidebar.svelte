@@ -23,9 +23,9 @@
 
 <svelte:window bind:scrollY />
 
-<aside class="sidebar" class:open={isOpen}>
+<div class="sidebar" class:open={isOpen}>
 	<div class="sidebar__inner">
-		{#if scrollY && scrollY > 0}
+		{#if true}
 			<span class="sidebar__toggler" transition:fade={{ duration: 200 }}>
 				<img on:click={toggleSidebar} src={IconMenu} alt="" />
 			</span>
@@ -53,7 +53,7 @@
 			</div>
 		{/if}
 	</div>
-</aside>
+</div>
 
 <style lang="scss">
 	.sidebar {
@@ -67,7 +67,7 @@
 		display: block;
 		padding-top: 2.5rem;
 		padding-bottom: 2.5rem;
-		z-index: 3;
+		z-index: 11;
 		transition: width 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
 		&.open {
 			width: 250px;
@@ -117,6 +117,9 @@
 			cursor: pointer;
 			margin-right: auto;
 			margin-left: 1.2rem;
+			img {
+				width: 100%;
+			}
 			&:active {
 				transition: all 0.1s;
 				//ransform: scale(1.05);

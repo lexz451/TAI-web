@@ -3,7 +3,7 @@
 </script>
 
 <form class="contact-form">
-	<span class="fw-bold text-dark mr-auto text-underline">About this project</span>
+	<h3 class="fw-bold text-dark mr-auto text-underline">About this project</h3>
 	<p class="text-gray">
 		Many struggle to imagine how to bring elements of participation and power-sharing into the
 		design of their strategies, both institutionally and programmatically.
@@ -39,7 +39,12 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 2rem;
+		padding: 4rem;
 		background-color: #f6f6f6;
+	}
+
+	.contact-form img {
+		max-width: 100%;
+		height: auto;
 	}
 </style>
