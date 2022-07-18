@@ -21,7 +21,7 @@
 		{#if top < 200 && bottom > windowHeight}
 			<div class="left-container" transition:fade={{ duration: 200, delay: 5 }}>
 				<h1 class="text-large text-theme-green mr-auto">Participatory strategy is...</h1>
-				<button class="btn btn-green mr-auto">Get started</button>
+				<a href="/get-started" class="btn btn-green mr-auto">Get started</a>
 			</div>
 		{/if}
 		<div class="inner">

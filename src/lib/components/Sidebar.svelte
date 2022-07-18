@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import IconMenu from '$lib/assets/icons/menu.png';
 	import IconArrow from '$lib/assets/icons/arrow-down.png';
 	import { page } from '$app/stores';
@@ -7,10 +7,9 @@
 
 	let isOpen = false;
 
-	/**
-	 * @type {number | null | undefined}
-	 */
-	let scrollY;
+	let scrollY: number;
+
+	let isHome = false;
 
 	const toggleSidebar = () => (isOpen = !isOpen);
 
@@ -18,14 +17,22 @@
 		isOpen = false;
 	});
 
-	const showScroller = () => scrollY == 0;
+	$: isHome = $page.url.pathname === '/';
+
+	const scrollToTestimonials = () => {
+		const el = document.getElementById('testimonial-section');
+		window.scrollTo({
+			top: el?.offsetTop,
+			behavior: 'smooth'
+		});
+	};
 </script>
 
 <svelte:window bind:scrollY />
 
 <div class="sidebar" class:open={isOpen}>
 	<div class="sidebar__inner">
-		{#if true}
+		{#if !isHome || scrollY > 0}
 			<span class="sidebar__toggler" transition:fade={{ duration: 200 }}>
 				<img on:click={toggleSidebar} src={IconMenu} alt="" />
 			</span>
@@ -46,8 +53,12 @@
 			</ul>
 		{/if}
 
-		{#if scrollY == 0}
-			<div class="sidebar__scroller mt-auto" transition:fade={{ duration: 200 }}>
+		{#if scrollY == 0 && isHome}
+			<div
+				class="sidebar__scroller mt-auto"
+				transition:fade={{ duration: 200 }}
+				on:click={() => scrollToTestimonials()}
+			>
 				<h4 class="text-theme-orange">Learn More</h4>
 				<img src={IconArrow} alt="" />
 			</div>
@@ -127,6 +138,7 @@
 		}
 
 		&__scroller {
+			cursor: pointer;
 			display: flex;
 			flex-direction: column;
 			align-items: center;

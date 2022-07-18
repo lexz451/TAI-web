@@ -16,7 +16,7 @@
 		{#if top < 200}
 			<div class="left-container" transition:fade={{ duration: 200, delay: 5 }}>
 				<h1 class="text-large text-theme-green mr-auto">How has it been done?</h1>
-				<button class="btn btn-green mr-auto">Get started</button>
+				<a href="/case-study" class="btn btn-outline-green mr-auto">Read case studies</a>
 			</div>
 		{/if}
 		<div class="inner">
@@ -24,8 +24,8 @@
 				<div class="background-overlay" />
 				<img src="$lib/assets/images/background/people.png" alt="" />
 				<div class="content">
-					<h1 class="text-large text-white mr-auto">How has it been done?</h1>
-					<button class="btn btn-green mr-auto text-white">Get started</button>
+					<h1 class="text-large text-white mr-auto">Ready to learn more?</h1>
+					<a href="/get-started" class="btn btn-green mr-auto text-white">Get started</a>
 				</div>
 			</div>
 			<div class="inner-right">
@@ -51,6 +51,8 @@
 	.inner .inner-left .content {
 		z-index: 1;
 		padding: 4rem;
+		display: flex;
+		flex-direction: column;
 	}
 	.inner .inner-left img {
 		position: absolute;

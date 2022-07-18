@@ -21,7 +21,7 @@
 					para permitir la presentación de elementos gráficos en documentos, sin necesidad de una
 					copia formal.
 				</p>
-				<button class="btn btn-green mr-auto">Get started</button>
+				<a href="/case-study" class="btn btn-outline-green mr-auto">Read case studies</a>
 			</div>
 		{/if}
 		<div class="fixed-container">
@@ -55,6 +55,7 @@
 <style lang="scss">
 	#brands-section {
 		opacity: 0;
+		min-height: 120vh;
 		&.visible {
 			opacity: 1;
 		}
