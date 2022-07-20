@@ -55,7 +55,7 @@
 		background-color: map-get($map: $colors, $key: surface);
 		.wrapper {
 			padding-left: 100px;
-			max-width: 1600px;
+			//max-width: 1600px;
 			.page {
 				display: flex;
 				flex-direction: column;
