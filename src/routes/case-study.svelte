@@ -1,13 +1,7 @@
-<script context="module">
-	export const autoscroll = false;
-</script>
-
 <script lang="ts">
-	import DarkOverlayImg from '$lib/assets/images/background/overlay-1.png';
-	import GreenOverlayImg from '$lib/assets/images/background/overlay-green.png';
 	import LeftBgImg from '$lib/assets/images/background/hands.png';
+	import { OverlayGradient } from '$lib/utils/theme';
 	import InnerLeftBgImg from '$lib/assets/images/background/natives.png';
-	//import InnerLeftBgImgOverlay from '$lib/assets/images/background/overlay-1.png';
 
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import IntersectionObserver from '$lib/components/IntersectionObserver.svelte';
@@ -19,36 +13,38 @@
 </svelte:head>
 
 <div class="case-study-page page">
-	<IntersectionObserver let:top>
-		<section id="section-1" class="content-split-container section z-1 bg-theme-blue">
-			<div class="left-background" style="background-image: url({LeftBgImg});">
-				<div class="background-overlay" />
-			</div>
-			<div class="left-container" transition:fade={{ duration: 200, delay: 0 }}>
-				<h1 class="text-theme-green fw-light">
+	<section id="section-1" class="section bg-blue">
+		<div class="content-split-container">
+			<div
+				class="inner-fixed-background"
+				style:background-image="{OverlayGradient}, url({LeftBgImg})"
+			/>
+			<div
+				class="inner-fixed-container d-flex flex-column p-5"
+				transition:fade={{ duration: 200, delay: 0 }}
+			>
+				<h1 class="text-green text-h1 mt-auto">
 					If your community is already at The Center of your decision-making, <strong
-						class="fw-bold">collaborate with us</strong
+						class="font-bold">collaborate with us</strong
 					>
 				</h1>
 				<button class="btn btn-outline-green mr-auto"> Submit a case study </button>
 			</div>
-			<div class="inner">
+			<div class="inner-container">
 				<div class="study-cases-container bg-white">
 					<div class="heading">
 						<div class="heading-left">
-							<h1 class="text-left mb-2 text-theme-orange text-center text-uppercase">
-								Study cases
-							</h1>
-							<span class="text-uppercase fw-bold"
+							<h1 class="text-left mb-2 text-orange text-uppercase">Study cases</h1>
+							<span class="text-uppercase font-bold"
 								>Learn from others, <br /> develop your own views</span
 							>
 						</div>
 						<div class="heading-right">
-							<p>
+							<p class="text-dark">
 								Globally distributed organizations and networks utilize participatory strategy to
 								determine their five to ten year strategies.
 							</p>
-							<p>
+							<p class="text-dark">
 								Learn how they designed the process, made key decisions, and ratified the final
 								strategy. Listen to how they tackled common challenges, such as who to include and
 								how to prepare.
@@ -61,7 +57,7 @@
 								<div class="overlay" />
 								<img class="image" src="$lib/assets/images/background/study-case.png" alt="" />
 								<h3 class="title">Study case #1</h3>
-								<button class="btn btn-orange btn-sm">Contact</button>
+								<button class="btn btn-orange btn-small text-light">Contact</button>
 							</div>
 							<div class="right-content">
 								<span class="text-uppercase fw-bold">Details</span>
@@ -89,7 +85,7 @@
 								<div class="overlay" />
 								<img class="image" src="$lib/assets/images/background/study-case.png" alt="" />
 								<h3 class="title">Study case #1</h3>
-								<button class="btn btn-orange btn-sm">Contact</button>
+								<button class="btn btn-orange btn-small text-light">Contact</button>
 							</div>
 							<div class="right-content">
 								<span class="text-uppercase fw-bold">Details</span>
@@ -117,7 +113,7 @@
 								<div class="overlay" />
 								<img class="image" src="$lib/assets/images/background/study-case.png" alt="" />
 								<h3 class="title">Study case #1</h3>
-								<button class="btn btn-orange btn-sm">Contact</button>
+								<button class="btn btn-orange btn-small text-light">Contact</button>
 							</div>
 							<div class="right-content">
 								<span class="text-uppercase fw-bold">Details</span>
@@ -143,34 +139,43 @@
 					</div>
 				</div>
 			</div>
-		</section>
-	</IntersectionObserver>
+		</div>
+	</section>
 	<IntersectionObserver let:top>
-		<section id="section-2" class="content-split-container section z-2 bg-theme-blue">
-			<div class="left-background" style="background-image: url({LeftBgImg});">
-				<div class="overlay" style="background-image: url({DarkOverlayImg});" />
-			</div>
-			{#if top < 200}
-				<div class="left-container" transition:fade={{ duration: 200 }}>
-					<h1 class="text-theme-green fw-light">
-						Ready to shift power on your strategic decisions?
-					</h1>
-					<button class="btn btn-green mr-auto">Get started </button>
-				</div>
-			{/if}
-			<div class="inner">
-				<div class="inner-left" style="background-image: url({InnerLeftBgImg});">
-					<!-- <div class="overlay" style="background-image: url({GreenOverlayImg});" /> -->
-					<div class="background-overlay" />
-					<!-- <div class="overlay" style="background-image: url({DarkOverlayImg});" /> -->
-
-					<div class="content">
-						<h1 class="text-white">Go further!</h1>
-						<button class="btn btn-outline-light mr-auto"> Resources </button>
+		<section id="section-2" class="section bg-blue">
+			<div class="content-split-container">
+				<div
+					class="inner-fixed-background"
+					style:background-image="{OverlayGradient}, url({LeftBgImg})"
+				/>
+				{#if top < 200}
+					<div
+						class="inner-fixed-container d-flex flex-column p-5"
+						transition:fade={{ duration: 200 }}
+					>
+						<h1 class="text-green text-h1 mt-auto">
+							Ready to shift power on your strategic decisions?
+						</h1>
+						<a class="btn btn-green mr-auto" href="/get-started">Get started </a>
 					</div>
-				</div>
-				<div class="inner-right">
-					<ContactForm />
+				{/if}
+				<div class="inner-container">
+					<div
+						class="inner-left d-flex flex-column p-5"
+						style="background-image: {OverlayGradient}, url({InnerLeftBgImg});"
+					>
+						<!-- <div class="overlay" style="background-image: url({GreenOverlayImg});" /> -->
+						<div class="background-overlay" />
+						<!-- <div class="overlay" style="background-image: url({DarkOverlayImg});" /> -->
+
+						<div class="content mt-auto d-flex flex-column">
+							<h1 class="text-light text-h1">Go further!</h1>
+							<a class="btn btn-outline-light mr-auto" href="/resources"> Resources </a>
+						</div>
+					</div>
+					<div class="inner-right">
+						<ContactForm />
+					</div>
 				</div>
 			</div>
 		</section>
@@ -178,108 +183,90 @@
 </div>
 
 <style lang="scss">
-	#section-1 {
-		.study-cases-container {
-			.heading {
-				padding: 3rem;
-				display: flex;
-				justify-content: space-between;
-				&-left {
-					width: 50%;
-				}
-				&-right {
-					width: 50%;
-				}
-			}
-
-			.content {
-				display: flex;
-				flex-direction: column;
-				.study-case-item {
-					margin-top: 5px;
-					height: 250px;
-					display: flex;
-					.left-content {
-						position: relative;
-						width: 50%;
-						.overlay {
-							position: absolute;
-							top: 0;
-							left: 0;
-							width: 100%;
-							height: 100%;
-							background-color: rgba(#051231, 0.6);
-							z-index: 1;
-						}
-						.image {
-							position: absolute;
-							top: 0;
-							left: 0;
-							width: 100%;
-							height: 100%;
-							object-fit: cover;
-						}
-						.title {
-							position: absolute;
-							z-index: 1;
-							left: 3rem;
-							top: 0.5rem;
-							text-transform: uppercase;
-							color: var(--theme-green);
-						}
-						.btn {
-							position: absolute;
-							z-index: 1;
-							bottom: 2rem;
-							left: 3rem;
-						}
-					}
-					.right-content {
-						background-color: #f6f6f6;
-						padding: 2rem;
-						width: 50%;
-						display: flex;
-						flex-direction: column;
-
-						p {
-							color: #666;
-						}
-						.actions {
-							display: flex;
-							align-items: center;
-						}
-						.actions a {
-							text-decoration: none;
-							text-transform: uppercase;
-							color: var(--theme-blue);
-							display: flex;
-							align-items: center;
-							margin-right: 2rem;
-							img {
-								margin-right: 0.5rem;
-							}
-						}
-					}
-				}
-			}
-		}
+	.inner-container .inner-left {
+		background-position: top;
 	}
-	#section-2 {
-		.inner {
-			height: 100vh;
+	.study-cases-container {
+		.heading {
+			padding: 3rem;
+			display: flex;
+			justify-content: space-between;
+			&-left {
+				width: 50%;
+			}
+			&-right {
+				width: 50%;
+			}
 		}
-		.inner .inner-left {
-			padding: 0;
+
+		.content {
 			display: flex;
 			flex-direction: column;
-			justify-content: flex-end;
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: 0;
-			position: relative;
-			.content {
-				z-index: 1;
-				padding: 4rem;
+			.study-case-item {
+				margin-bottom: 5px;
+				height: 250px;
+				display: flex;
+				.left-content {
+					position: relative;
+					width: 50%;
+					.overlay {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background-color: rgba(#051231, 0.6);
+						z-index: 1;
+					}
+					.image {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+					.title {
+						position: absolute;
+						z-index: 1;
+						left: 3rem;
+						top: 0.5rem;
+						text-transform: uppercase;
+						color: var(--theme-green);
+					}
+					.btn {
+						position: absolute;
+						z-index: 1;
+						bottom: 2rem;
+						left: 3rem;
+					}
+				}
+				.right-content {
+					background-color: #f6f6f6;
+					padding: 2rem;
+					width: 50%;
+					display: flex;
+					flex-direction: column;
+
+					p {
+						color: #666;
+					}
+					.actions {
+						display: flex;
+						align-items: center;
+					}
+					.actions a {
+						text-decoration: none;
+						text-transform: uppercase;
+						color: var(--theme-blue);
+						display: flex;
+						align-items: center;
+						margin-right: 2rem;
+						img {
+							margin-right: 0.5rem;
+						}
+					}
+				}
 			}
 		}
 	}

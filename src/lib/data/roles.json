@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "A By-Stander",
+        "icon": "by-stander.png",
+        "resume": "I'm informed of the end result",
+        "description": "Most often, those impacted by strategic decisions are informed after the fact. They understand what will happen going forward, but have little recourse to shape or change what’s to come.",
+        "community_participation": "",
+        "decision_making_power": ""
+    },
+    {
+        "id": 2,
+        "name": "A Contributor",
+        "icon": "contributor.png",
+        "resume": "I'm informed of the end result",
+        "description": "Most often, those impacted by strategic decisions are informed after the fact. They understand what will happen going forward, but have little recourse to shape or change what’s to come.",
+        "community_participation": "",
+        "decision_making_power": ""
+    },
+    {
+        "id": 3,
+        "name": "A Recommender",
+        "icon": "recommender.png",
+        "resume": "I'm informed of the end result",
+        "description": "Most often, those impacted by strategic decisions are informed after the fact. They understand what will happen going forward, but have little recourse to shape or change what’s to come.",
+        "community_participation": "",
+        "decision_making_power": ""
+    },
+    {
+        "id": 4,
+        "name": "The Center",
+        "icon": "the-center.png",
+        "resume": "I'm informed of the end result",
+        "description": "Most often, those impacted by strategic decisions are informed after the fact. They understand what will happen going forward, but have little recourse to shape or change what’s to come.",
+        "community_participation": "",
+        "decision_making_power": ""
+    }
+]

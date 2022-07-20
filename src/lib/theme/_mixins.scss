@@ -1,0 +1,36 @@
+/*=============================================
+=            		Mixins	 		          =
+=============================================*/
+
+@mixin generate-divider($key, $color, $height: 2px) {
+	.divider-#{$key} {
+		width: 100%;
+		height: $height;
+		background-color: $color;
+		margin-top: 0.5rem;
+		margin-bottom: 1rem;
+	}
+}
+
+@mixin generate-utility($utility) {
+	$values: map-get($utility, value);
+
+	@if type-of($values) == 'string' or type-of(nth($values, 1)) != 'list' {
+		$values: zip($values, $values);
+	}
+
+	@each $key, $value in $values {
+		$class: map-get($utility, class);
+		$properties: map-get($utility, property);
+
+		@if type-of($properties) == 'string' {
+			$properties: append((), $properties);
+		}
+
+		.#{$class}-#{$key} {
+			@each $property in $properties {
+				#{$property}: $value !important;
+			}
+		}
+	}
+}

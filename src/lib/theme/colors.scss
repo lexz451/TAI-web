@@ -1,0 +1,28 @@
+$theme-colors: (
+	'white': #ffffff,
+	'black': #000000,
+	'dark': #212121,
+	'dark-gray': #666666,
+	'light': #fafafa,
+	'light-gray': #f6f6f6,
+	'blue': #0a132d,
+	'green': #00d8ad,
+	'orange': #e79e6a
+);
+
+/** Global color variables **/
+:root {
+	@each $key, $value in $theme-colors {
+		--theme-#{$key}: #{$value};
+	}
+}
+
+/** Generate color utilities **/
+@each $key, $value in $theme-colors {
+	.bg-#{$key} {
+		background-color: #{$value};
+	}
+	.text-#{$key} {
+		color: #{$value};
+	}
+}

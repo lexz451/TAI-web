@@ -1,10 +1,22 @@
 <script>
-	import Logo from '$lib/assets/images/logo/logo.png';
+	import Logo from '$lib/assets/images/logo/logo.svg?component';
+	import LogoWhite from '$lib/assets/images/logo/logo-white.svg?component';
+
+	import { page } from '$app/stores';
+
+	let showLogoWhite = false;
+
+	$: showLogoWhite =
+		$page.url.pathname.includes('/get-started') || $page.url.pathname.includes('/resources');
 </script>
 
 <nav class="navbar">
 	<a href="/" class="navbar-brand">
-		<img src={Logo} alt="" />
+		{#if showLogoWhite}
+			<LogoWhite width="250" />
+		{:else}
+			<Logo width="250" />
+		{/if}
 	</a>
 </nav>
 
@@ -13,7 +25,7 @@
 		width: 425px;
 		position: fixed;
 		z-index: 10;
-		margin-left: 120px;
+		margin-left: 100px;
 		padding: 2.5rem;
 		.navbar-brand img {
 			width: 240px;

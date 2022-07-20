@@ -1,6 +1,8 @@
-<section class="content-split-container section z-1" data-section="1">
-	<div class="video-container">
-		<img src="$lib/assets/images/home.jpg" alt="" />
+<section class="section z-1">
+	<div class="content-split-container">
+		<div class="video-container">
+			<img src="$lib/assets/images/home.jpg" alt="" />
+		</div>
+		<div class="inner-container" />
 	</div>
-	<div class="left-container" />
 </section>

@@ -1,0 +1,225 @@
+/*=============================================
+=               SCSS variables                =
+=============================================*/
+
+$colors: (
+	'white': #ffffff,
+	'black': #000000,
+	'dark': #222222,
+	'gray': #666666,
+	'light': #fafafa,
+	'surface': #f6f6f6,
+	'blue': #0a132d,
+	'green': #00d8ad,
+	'orange': #e79e6a,
+	'danger': #dc3545
+);
+
+$font-family: 'Lato', sans-serif;
+
+$font-weights: (
+	'thin': 100,
+	'light': 300,
+	'regular': 400,
+	'bold': 700,
+	'black': 900
+);
+
+$font-size-base: 1rem;
+
+$font-sizes: (
+	'big': $font-size-base * 3,
+	'h1': $font-size-base * 2.5,
+	'h2': $font-size-base * 2,
+	'h3': $font-size-base * 1.75,
+	'h4': $font-size-base * 1.5,
+	'h5': $font-size-base * 1.25,
+	'regular': $font-size-base,
+	'small': $font-size-base * 0.75
+);
+
+$spacers: (
+	'0': 0,
+	'1': 0.25rem,
+	'2': 0.5rem,
+	'3': 1rem,
+	'4': 1.5rem,
+	'5': 3rem,
+	'auto': auto
+);
+
+$sizes: (
+	'0': 0,
+	'25': 25%,
+	'50': 50%,
+	'75': 75%,
+	'100': 100%,
+	'auto': auto
+);
+
+$displays: inline inline-block block grid table table-row table-cell flex inline-flex none;
+
+$utilities: (
+	'display': (
+		property: display,
+		class: d,
+		value: $displays
+	),
+	'width': (
+		property: width,
+		class: w,
+		value: $sizes
+	),
+	'height': (
+		property: height,
+		class: h,
+		value: $sizes
+	),
+	'margin': (
+		property: margin,
+		class: m,
+		value: $spacers
+	),
+	'margin-x': (
+		property: margin-right margin-left,
+		class: mx,
+		value: $spacers
+	),
+	'margin-y': (
+		property: margin-top margin-bottom,
+		class: my,
+		value: $spacers
+	),
+	'margin-left': (
+		property: margin-left,
+		class: ml,
+		value: $spacers
+	),
+	'margin-right': (
+		property: margin-right,
+		class: mr,
+		value: $spacers
+	),
+	'margin-top': (
+		property: margin-top,
+		class: mt,
+		value: $spacers
+	),
+	'margin-bottom': (
+		property: margin-bottom,
+		class: mb,
+		value: $spacers
+	),
+	'padding': (
+		property: padding,
+		class: p,
+		value: $spacers
+	),
+	'padding-x': (
+		property: padding-left padding-right,
+		class: px,
+		value: $spacers
+	),
+	'padding-y': (
+		property: padding-top padding-bottom,
+		class: py,
+		value: $spacers
+	),
+	'padding-right': (
+		property: padding-right,
+		class: pr,
+		value: $spacers
+	),
+	'padding-left': (
+		property: padding-left,
+		class: pl,
+		value: $spacers
+	),
+	'padding-top': (
+		property: padding-top,
+		class: pt,
+		value: $spacers
+	),
+	'padding-bottom': (
+		property: padding-bottom,
+		class: pb,
+		value: $spacers
+	),
+	'font-size': (
+		property: font-size,
+		class: text,
+		value: $font-sizes
+	),
+	'font-style': (
+		property: font-style,
+		class: text,
+		value: italic normal
+	),
+	'font-weight': (
+		property: font-weight,
+		class: font,
+		value: $font-weights
+	),
+	'text-align': (
+		property: text-align,
+		class: text,
+		value: (
+			'left': left,
+			'right': right,
+			'center': center
+		)
+	),
+	'text-transform': (
+		property: text-transform,
+		class: text,
+		value: capitalize lowercase uppercase
+	),
+	'color': (
+		property: color,
+		class: text,
+		value: $colors
+	),
+	'background-color': (
+		property: background-color,
+		class: bg,
+		value: $colors
+	),
+	'z-index': (
+		property: z-index,
+		class: z,
+		value: 1 2 3 4 5 6 7 8 9 10
+	),
+	'flex-direction': (
+		property: flex-direction,
+		class: flex,
+		value: row column row-reverse column-reverse
+	),
+	'flex-grow': (
+		property: flex-grow,
+		class: flex-grow,
+		value: 1 0
+	),
+	'align-items': (
+		property: align-items,
+		class: align,
+		value: (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			baseline: baseline,
+			stretch: stretch
+		)
+	),
+	'justify-content': (
+		property: justify-content,
+		class: justify,
+		value: (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			between: space-between,
+			around: space-around,
+			evenly: space-evenly
+		)
+	)
+);

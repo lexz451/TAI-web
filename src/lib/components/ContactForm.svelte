@@ -2,49 +2,57 @@
 	import ContactFormBrands from '$lib/assets/images/brands/contact-form-brands.png';
 </script>
 
-<form class="contact-form">
-	<h3 class="fw-bold text-dark mr-auto text-underline">About this project</h3>
-	<p class="text-gray">
+<form class="bg-surface h-100 d-flex flex-column p-5">
+	<h3 class="font-bold text-dark mr-auto">About this project</h3>
+	<p class="text-dark">
 		Many struggle to imagine how to bring elements of participation and power-sharing into the
 		design of their strategies, both institutionally and programmatically.
 	</p>
 
-	<p class="text-gray mb-4">
+	<p class="text-dark mb-4">
 		The Transparency and Accountability Initative (TAI) has built this library to illuminate what is
 		(and isn't) a participatory strategy and describe how funders and nonproﬁts have designed and
 		executed their participatory strategic processes.
 	</p>
 	<br />
-	<small class="fw-bold mb-4">
+	<small class="text-small mb-4">
 		If you have any questions or comments, please feel free to write to us at
-		<a href="mailto:contact@transparency-initatve.org">contact@transparency-initative.org</a>
+		<a href="mailto:contact@transparency-initatve.org" class="text-orange"
+			>contact@transparency-initative.org</a
+		>
 		or reach out through this contact form.
 	</small>
 
 	<input class="form-control" type="text" name="name" placeholder="Name" />
 	<input class="form-control" type="email" name="email" placeholder="Email" />
-	<textarea class="form-control" name="message" id="message-input" rows="3" placeholder="Message" />
+	<div class="message-control">
+		<img class="send-btn" src="$lib/assets/icons/send.png" alt="Send" />
+		<textarea
+			class="form-control"
+			name="message"
+			id="message-input"
+			rows="3"
+			placeholder="Message"
+		/>
+	</div>
 
-	<small class="text-sm text-red mb-4"
+	<small class="text-small font-light text-danger mb-4"
 		>Thank you! Your message has been submitted. Someone from TAI will be in contact with you soon.</small
 	>
-	<small class="fw-bold mr-auto mt-4">This project was built by</small>
+	<small class="font-bold text-dark mr-auto mt-4">This project was built by</small>
 	<img class="mt-4" src={ContactFormBrands} alt="Brand images" />
 </form>
 
 <style>
-	.contact-form {
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		padding: 3rem;
-		background-color: #f6f6f6;
+	.message-control {
+		position: relative;
 	}
-
-	.contact-form img {
-		max-width: 100%;
-		height: auto;
+	.message-control .send-btn {
+		position: absolute;
+		bottom: 16px;
+		right: 12px;
+		cursor: pointer;
+		transition: all 0.1s ease;
+		image-rendering: optimizeQuality;
 	}
 </style>

@@ -1,7 +1,7 @@
 <div class="search-control">
 	<input type="search" placeholder="Keywords" />
 	<div class="search-control-filters">
-		<img src="$lib/assets/icons/filter.png" alt="" />
+		<img src="$lib/assets/icons/filters.png" alt="" />
 	</div>
 	<div class="search-control-menu" />
 </div>
@@ -19,18 +19,20 @@
 			font-weight: 300;
 			background-color: transparent;
 			outline: none;
-			padding: 0.75rem 1rem;
+			padding: 0.65rem 1rem;
 			font-style: italic;
 			font-size: 14px;
 			font-family: 'Lato', sans-serif;
 			width: 100%;
+			margin: 0;
+			line-height: 1;
 		}
 		.search-control-filters {
 			position: absolute;
 			width: 24px;
 			height: 24px;
 			right: 10px;
-			top: calc(100% - 32px);
+			top: calc(100% - 31px);
 			border-radius: 5px;
 			cursor: pointer;
 		}

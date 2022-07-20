@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconMenu from '$lib/assets/icons/menu.png';
+	import IconMenu from '$lib/assets/icons/menu.svg?component';
 	import IconArrow from '$lib/assets/icons/arrow-down.png';
 	import { page } from '$app/stores';
 	import { beforeNavigate } from '$app/navigation';
@@ -20,7 +20,7 @@
 	$: isHome = $page.url.pathname === '/';
 
 	const scrollToTestimonials = () => {
-		const el = document.getElementById('testimonial-section');
+		const el = document.getElementById('testimonials');
 		window.scrollTo({
 			top: el?.offsetTop,
 			behavior: 'smooth'
@@ -33,8 +33,8 @@
 <div class="sidebar" class:open={isOpen}>
 	<div class="sidebar__inner">
 		{#if !isHome || scrollY > 0}
-			<span class="sidebar__toggler" transition:fade={{ duration: 200 }}>
-				<img on:click={toggleSidebar} src={IconMenu} alt="" />
+			<span class="sidebar__toggler" on:click={toggleSidebar} transition:fade={{ duration: 200 }}>
+				<IconMenu />
 			</span>
 
 			<ul class="sidebar__menu">
@@ -59,7 +59,7 @@
 				transition:fade={{ duration: 200 }}
 				on:click={() => scrollToTestimonials()}
 			>
-				<h4 class="text-theme-orange">Learn More</h4>
+				<h4 class="text-orange">Learn More</h4>
 				<img src={IconArrow} alt="" />
 			</div>
 		{/if}
@@ -73,7 +73,7 @@
 		left: 0;
 		top: 0;
 		height: 100vh;
-		width: 120px;
+		width: 100px;
 		box-shadow: 0 0 10px 10px rgba($color: #000000, $alpha: 0.1);
 		display: block;
 		padding-top: 2.5rem;
@@ -82,7 +82,6 @@
 		transition: width 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
 		&.open {
 			width: 250px;
-
 			.sidebar__menu {
 				opacity: 1;
 			}
@@ -105,11 +104,11 @@
 			padding: 0;
 			margin: 0;
 			margin-top: 4rem;
-			margin-left: 1.2rem;
+			margin-left: 0.6rem;
 			&--item {
 				margin-bottom: 1.5rem;
 				a {
-					font-size: 1rem;
+					font-size: 1.1rem;
 					text-decoration: none;
 					font-weight: 700;
 					color: #fafafa;
@@ -127,10 +126,8 @@
 			margin-top: 0.4rem;
 			cursor: pointer;
 			margin-right: auto;
-			margin-left: 1.2rem;
-			img {
-				width: 100%;
-			}
+			margin-left: 0.6rem;
+
 			&:active {
 				transition: all 0.1s;
 				//ransform: scale(1.05);

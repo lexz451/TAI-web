@@ -65,19 +65,19 @@
 		height: 100%;
 		width: 425px;
 		top: 0;
-		padding: 4rem;
+		padding: 2rem;
 	}
 	.inner {
 		display: flex;
 		height: 100%;
+		min-height: 100vh;
 		width: calc(100% - 425px);
 		margin-left: 425px;
-		.inner-left {
-			padding: 4rem;
-			width: 50%;
-		}
+		.inner-left,
 		.inner-right {
+			padding: 2rem;
 			width: 50%;
+			position: relative;
 		}
 	}
 	.fixed-container {
