@@ -27,8 +27,5 @@
 		z-index: 10;
 		margin-left: 100px;
 		padding: 2.5rem;
-		.navbar-brand img {
-			width: 240px;
-		}
 	}
 </style>

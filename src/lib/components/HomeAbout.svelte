@@ -48,26 +48,4 @@
 </IntersectionObserver>
 
 <style>
-	.inner .inner-left {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		position: relative;
-		flex-direction: column;
-		overflow: hidden;
-		padding: 0;
-	}
-	.inner .inner-left .content {
-		z-index: 1;
-		padding: 4rem;
-		display: flex;
-		flex-direction: column;
-	}
-	.inner .inner-left img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: 0 -50px;
-	}
 </style>
