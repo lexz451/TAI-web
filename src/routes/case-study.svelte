@@ -1,7 +1,7 @@
 <script lang="ts">
-	import LeftBgImg from '$lib/assets/images/background/hands.png';
+	import LeftBgImg from '$lib/assets/images/background/hands.jpg';
 	import { OverlayGradient } from '$lib/utils/theme';
-	import InnerLeftBgImg from '$lib/assets/images/background/natives.png';
+	import InnerLeftBgImg from '$lib/assets/images/background/ancient.jpg';
 
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import IntersectionObserver from '$lib/components/IntersectionObserver.svelte';
@@ -185,6 +185,7 @@
 <style lang="scss">
 	.inner-container .inner-left {
 		background-position: top;
+		background-size: cover;
 	}
 	.study-cases-container {
 		.heading {
@@ -208,7 +209,7 @@
 				display: flex;
 				.left-content {
 					position: relative;
-					width: 50%;
+					width: 35vw;
 					.overlay {
 						position: absolute;
 						top: 0;
@@ -244,7 +245,7 @@
 				.right-content {
 					background-color: #f6f6f6;
 					padding: 2rem;
-					width: 50%;
+					width: calc(100% - 35vw + 2.5rem);
 					display: flex;
 					flex-direction: column;
 

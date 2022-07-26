@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import IntersectionObserver from './IntersectionObserver.svelte';
 
-	import LeftBgImg from '$lib/assets/images/background/brands-left-bg.png';
+	import LeftBgImg from '$lib/assets/images/background/hands.jpg';
 	import { OverlayGradient } from '$lib/utils/theme';
 </script>
 

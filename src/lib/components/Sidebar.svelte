@@ -34,7 +34,7 @@
 	<div class="sidebar__inner">
 		{#if !isHome || scrollY > 0}
 			<span class="sidebar__toggler" on:click={toggleSidebar} transition:fade={{ duration: 200 }}>
-				<IconMenu />
+				<IconMenu width="48" />
 			</span>
 
 			<ul class="sidebar__menu">

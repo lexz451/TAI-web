@@ -49,6 +49,8 @@
 	@import '../lib/theme/mixins';
 	@import '../lib/theme/core';
 
+	$panel-size: 33.5vw;
+
 	#app {
 		font-family: $font-family;
 		font-weight: normal;
@@ -100,26 +102,36 @@
 							top: 0;
 							background-attachment: fixed;
 							background-repeat: no-repeat;
-							//background-size: 50%;
-							width: 425px;
+							background-size: calc(35vw + 100px);
+							width: $panel-size;
 							min-height: 100%;
 						}
 						.inner-fixed-container {
 							top: 0;
 							left: 100px;
 							position: fixed;
-							width: 425px;
+							width: $panel-size;
 							height: 100%;
 						}
 						.inner-container {
 							display: flex;
-							margin-left: 425px;
-							width: calc(100% - 425px);
+							margin-left: $panel-size;
+							width: calc(100% - $panel-size);
 						}
-						.inner-container .inner-left,
+						// .inner-container .inner-left,
+						// .inner-container .inner-right {
+						// 	//width: 50%;
+						// }
+
+
+						.inner-container .inner-left {
+							width: $panel-size;
+						}
+
 						.inner-container .inner-right {
-							width: 50%;
+							width: calc(100% - $panel-size);
 						}
+
 					}
 				}
 			}

@@ -2,9 +2,9 @@
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import ResourceItem from '$lib/components/ResourceItem.svelte';
 	import SearchControl from '$lib/components/SearchControl.svelte';
-	import LeftImgBg from '$lib/assets/images/background/natives.png';
+	import LeftImgBg from '$lib/assets/images/background/ancient.jpg';
 	import { OverlayGradient } from '$lib/utils/theme';
-	import DarkOverlayImg from '$lib/assets/images/background/overlay-1.png';
+import FiltersForm from '$lib/components/FiltersForm.svelte';
 </script>
 
 <svelte:head>
@@ -41,7 +41,7 @@
 					</div>
 				</div>
 				<div class="inner-right">
-					<ContactForm />
+					<FiltersForm />
 				</div>
 			</div>
 		</div>

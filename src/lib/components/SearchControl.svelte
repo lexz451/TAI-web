@@ -1,7 +1,7 @@
 <div class="search-control">
 	<input type="search" placeholder="Keywords" />
 	<div class="search-control-filters">
-		<img src="$lib/assets/icons/filters.png" alt="" />
+		<img src="$lib/assets/icons/search.png" alt="" />
 	</div>
 	<div class="search-control-menu" />
 </div>

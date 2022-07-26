@@ -17,7 +17,7 @@
 	import VideoIcon from '$lib/assets/icons/video.svg?component';
 	import ArrowDownIcon from '$lib/assets/icons/arrow_down.svg?component';
 
-	import LeftBgImg from '$lib/assets/images/background/people.png';
+	import LeftBgImg from '$lib/assets/images/background/people.jpg';
 	import { OverlayGradient } from '$lib/utils/theme';
 
 	import ContactForm from '$lib/components/ContactForm.svelte';

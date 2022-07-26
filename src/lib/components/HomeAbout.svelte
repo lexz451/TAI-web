@@ -1,7 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import LeftBgImg from '$lib/assets/images/background/brands-left-bg.png';
-	import LeftInnerBgImg from '$lib/assets/images/background/people.png';
+	import LeftBgImg from '$lib/assets/images/background/hands.jpg';
+	import LeftInnerBgImg from '$lib/assets/images/background/people.jpg';
 	import { OverlayGradient } from '$lib/utils/theme';
 	import ContactForm from './ContactForm.svelte';
 	import IntersectionObserver from './IntersectionObserver.svelte';
@@ -48,4 +48,9 @@
 </IntersectionObserver>
 
 <style>
+	.inner-container .inner-left {
+		background-position: top;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
 </style>
