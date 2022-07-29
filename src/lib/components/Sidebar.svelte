@@ -48,7 +48,7 @@
 					<a href="/case-study">Case study</a>
 				</li>
 				<li class="sidebar__menu--item" class:active={$page.url.pathname.includes('/resources')}>
-					<a href="resources">Resources</a>
+					<a href="/resources">Resources</a>
 				</li>
 			</ul>
 		{/if}

@@ -20,7 +20,7 @@
 					class="inner-fixed-container d-flex flex-column p-5"
 					transition:fade={{ duration: 200, delay: 5 }}
 				>
-					<h1 class="text-h1 w-75 text-green mr-auto mt-auto">Participatory strategy is...</h1>
+					<h1 class="text-big w-75 text-orange font-black mr-auto mt-auto">Participatory strategy is...</h1>
 					<a href="/get-started" class="btn btn-green mr-auto">Get started</a>
 				</div>
 			{/if}

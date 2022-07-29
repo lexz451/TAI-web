@@ -3,6 +3,10 @@
 	import IntersectionObserver from './IntersectionObserver.svelte';
 
 	import LeftBgImg from '$lib/assets/images/background/hands.jpg';
+
+	import DashedWhite from '$lib/assets/images/brands/dashed.png';
+	import DashedGreen from '$lib/assets/images/brands/dashed-green.png';
+
 	import { OverlayGradient } from '$lib/utils/theme';
 </script>
 
@@ -45,18 +49,20 @@
 						<div class="brand-circle bg-white p-4">
 							<img
 								class="inner_image"
-								src="$lib/assets/images/brands/mamacash.png"
-								alt="Mama Cash"
+								src="$lib/assets/images/brands/porposeful.png"
+								alt="Porposeful"
 							/>
 						</div>
 						<div class="brand-circle">
-							<img src="$lib/assets/images/brands/empty.png" alt="Empty circle" />
+							<img src="$lib/assets/images/brands/femnet.png" alt="Empty circle" />
 						</div>
-						<div class="brand-circle">
-							<img src="$lib/assets/images/brands/dashed.png" alt="Dashed circle" />
+						<div class="brand-circle p-4" style:background-image="url({DashedWhite})"
+							style="background-size: contain;">
+							<img class="inner_image" src="$lib/assets/images/brands/care.png" alt="Dashed circle" />
 						</div>
-						<div class="brand-circle">
-							<img src="$lib/assets/images/brands/placeholder.png" alt="Placeholder circle" />
+						<div class="brand-circle p-4" style:background-image="url({DashedGreen})"
+						style="background-size: contain;">
+							<img  class="inner_image" src="$lib/assets/images/brands/wikimedia.png" alt="Placeholder circle" />
 						</div>
 					</div>
 				</div>

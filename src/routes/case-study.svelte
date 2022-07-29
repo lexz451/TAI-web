@@ -1,11 +1,37 @@
+<script context="module" lang="ts">
+	/**
+	 * Load case-study items
+	 */
+	export async function load({ fetch }: { fetch: any }) {
+		const API_URL = import.meta.env.VITE_API_URL;
+		const params = new URLSearchParams({
+			populate: '*'
+		});
+		const url = `${API_URL}/api/mc-casestudies?${params.toString()}`;
+
+		const res = await fetch(url);
+		const { data: studies } = await res.json();
+
+		return {
+			props: {
+				studies
+			}
+		};
+	}
+</script>
+
 <script lang="ts">
 	import LeftBgImg from '$lib/assets/images/background/hands.jpg';
+	import LeftBgImg2 from '$lib/assets/images/background/people.jpg';
 	import { OverlayGradient } from '$lib/utils/theme';
 	import InnerLeftBgImg from '$lib/assets/images/background/ancient.jpg';
 
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import IntersectionObserver from '$lib/components/IntersectionObserver.svelte';
 	import { fade } from 'svelte/transition';
+	import Image from '$lib/components/Image.svelte';
+
+	export let studies: any[];
 </script>
 
 <svelte:head>
@@ -24,17 +50,15 @@
 				transition:fade={{ duration: 200, delay: 0 }}
 			>
 				<h1 class="text-green text-h1 mt-auto">
-					If your community is already at The Center of your decision-making, <strong
-						class="font-bold">collaborate with us</strong
-					>
+					Discover how participatory strategy works in practice
 				</h1>
-				<button class="btn btn-outline-green mr-auto"> Submit a case study </button>
+				<a href="/get-started#faq" class="btn btn-outline-green mr-auto" style="text-transform: none;"> READ THE FAQs </a>
 			</div>
 			<div class="inner-container">
 				<div class="study-cases-container bg-white">
 					<div class="heading">
 						<div class="heading-left">
-							<h1 class="text-left mb-2 text-orange text-uppercase">Study cases</h1>
+							<h1 class="text-left mb-2 text-orange text-uppercase">Case Studies</h1>
 							<span class="text-uppercase font-bold"
 								>Learn from others, <br /> develop your own views</span
 							>
@@ -52,90 +76,36 @@
 						</div>
 					</div>
 					<div class="content">
-						<div class="study-case-item">
-							<div class="left-content">
-								<div class="overlay" />
-								<img class="image" src="$lib/assets/images/background/study-case.png" alt="" />
-								<h3 class="title">Study case #1</h3>
-								<button class="btn btn-orange btn-small text-light">Contact</button>
-							</div>
-							<div class="right-content">
-								<span class="text-uppercase fw-bold">Details</span>
-								<p class="mt-2">
-									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-									euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-									minim veniam,
-								</p>
-								<div class="actions mt-auto">
-									<!-- svelte-ignore a11y-invalid-attribute -->
-									<a href="#">
-										<img width="18" height="18" src="$lib/assets/icons/link.png" alt="" />
-										Video
-									</a>
-									<!-- svelte-ignore a11y-invalid-attribute -->
-									<a href="#">
-										<img width="18" height="18" src="$lib/assets/icons/link.png" alt="" />
-										PDF
-									</a>
+						{#each studies as item}
+							<div class="study-case-item">
+								<div class="left-content">
+									<div class="overlay" />
+									<!-- <img class="image" src={item?.image?.url} alt="" /> -->
+									<Image width image={item.image} classes="image" />
+									<h3 class="title text-h3">{item?.name}</h3>
+									<a href={item?.contact_url} class="btn btn-orange btn-small text-light">Contact</a
+									>
+								</div>
+								<div class="right-content">
+									<span class="text-uppercase font-bold">Details</span>
+									<p class="mt-2">
+										{item?.details}
+									</p>
+									<div class="actions mt-auto">
+										{#each item.links as link}
+											<a href={link.href} class="font-light">
+												<img width="16" height="16" src="$lib/assets/icons/link.png" alt="" />
+												{#if link.type == 'video'}
+													VIDEO
+												{:else if link.type == 'pdf'}
+													PDF
+												{/if}
+											</a>
+										{/each}
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="study-case-item">
-							<div class="left-content">
-								<div class="overlay" />
-								<img class="image" src="$lib/assets/images/background/study-case.png" alt="" />
-								<h3 class="title">Study case #1</h3>
-								<button class="btn btn-orange btn-small text-light">Contact</button>
-							</div>
-							<div class="right-content">
-								<span class="text-uppercase fw-bold">Details</span>
-								<p class="mt-2">
-									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-									euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-									minim veniam,
-								</p>
-								<div class="actions mt-auto">
-									<!-- svelte-ignore a11y-invalid-attribute -->
-									<a href="#">
-										<img width="18" height="18" src="$lib/assets/icons/link.png" alt="" />
-										Video
-									</a>
-									<!-- svelte-ignore a11y-invalid-attribute -->
-									<a href="#">
-										<img width="18" height="18" src="$lib/assets/icons/link.png" alt="" />
-										PDF
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="study-case-item">
-							<div class="left-content">
-								<div class="overlay" />
-								<img class="image" src="$lib/assets/images/background/study-case.png" alt="" />
-								<h3 class="title">Study case #1</h3>
-								<button class="btn btn-orange btn-small text-light">Contact</button>
-							</div>
-							<div class="right-content">
-								<span class="text-uppercase fw-bold">Details</span>
-								<p class="mt-2">
-									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-									euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-									minim veniam,
-								</p>
-								<div class="actions mt-auto">
-									<!-- svelte-ignore a11y-invalid-attribute -->
-									<a href="#">
-										<img width="18" height="18" src="$lib/assets/icons/link.png" alt="" />
-										Video
-									</a>
-									<!-- svelte-ignore a11y-invalid-attribute -->
-									<a href="#">
-										<img width="18" height="18" src="$lib/assets/icons/link.png" alt="" />
-										PDF
-									</a>
-								</div>
-							</div>
-						</div>
+						{/each}
 					</div>
 				</div>
 			</div>
@@ -146,7 +116,7 @@
 			<div class="content-split-container">
 				<div
 					class="inner-fixed-background"
-					style:background-image="{OverlayGradient}, url({LeftBgImg})"
+					style:background-image="{OverlayGradient}, url({LeftBgImg2})"
 				/>
 				{#if top < 200}
 					<div
@@ -182,7 +152,7 @@
 	</IntersectionObserver>
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.inner-container .inner-left {
 		background-position: top;
 		background-size: cover;
@@ -192,11 +162,12 @@
 			padding: 3rem;
 			display: flex;
 			justify-content: space-between;
+			position: relative;
 			&-left {
-				width: 50%;
+				width: 35vw;
 			}
 			&-right {
-				width: 50%;
+				width: calc(100% - 30vw);
 			}
 		}
 
@@ -219,7 +190,7 @@
 						background-color: rgba(#051231, 0.6);
 						z-index: 1;
 					}
-					.image {
+					:global(.image) {
 						position: absolute;
 						top: 0;
 						left: 0;
@@ -245,7 +216,7 @@
 				.right-content {
 					background-color: #f6f6f6;
 					padding: 2rem;
-					width: calc(100% - 35vw + 2.5rem);
+					width: calc(100% - 35vw + 2rem);
 					display: flex;
 					flex-direction: column;
 

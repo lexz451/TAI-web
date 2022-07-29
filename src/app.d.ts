@@ -8,6 +8,10 @@ declare module 'svelte-image';
 
 declare module 'svelte-collapsible';
 
+declare module 'svelte-progress-bar';
+
+declare module 'svelte-filepond';
+
 declare module '*.svg' {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const content: any;

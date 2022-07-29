@@ -24,7 +24,7 @@
 					class="inner-fixed-container d-flex flex-column p-5"
 					transition:fade={{ duration: 200, delay: 5 }}
 				>
-					<h1 class="text-h1 text-green mr-auto mt-auto">How has it been done?</h1>
+					<h1 class="text-h1 text-green mr-auto mt-auto w-75">How has it been done?</h1>
 					<a href="/case-study" class="btn btn-outline-green mr-auto">Read case studies</a>
 				</div>
 			{/if}
@@ -35,8 +35,10 @@
 				>
 					<!-- <img src="$lib/assets/images/background/people.png" alt="" /> -->
 					<div class="content mt-auto d-flex flex-column w-75">
-						<h1 class="text-h1 text-white mr-auto">Ready to learn more?</h1>
-						<a href="/get-started" class="btn btn-green mr-auto text-white">Get started</a>
+						<h1 class="text-h1 text-white mr-auto">
+							Ready to shif power on your strategic decisions?
+						</h1>
+						<a href="/get-started" class="btn btn-green mr-auto text-blue">Get started</a>
 					</div>
 				</div>
 				<div class="inner-right">

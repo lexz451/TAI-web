@@ -8,22 +8,30 @@
 </script>
 
 <script lang="ts">
+	import ProgressBar from 'svelte-progress-bar';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
+	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	// import 'uno.css';
 	// import '@unocss/reset/normalize.css';
 	import PageTransition from '$lib/components/PageTransition.svelte';
 	import { onMount } from 'svelte';
 
-	export let url: any;
+	export const url = '';
 
 	import { page } from '$app/stores';
 
-	onMount(() => {
-		console.log(url);
-	});
+	beforeNavigate(() => progress.start());
+	afterNavigate(() => progress.complete());
+
+	let progress: {
+		complete(): void;
+		start: () => void;
+		stop: () => void;
+	};
 </script>
 
+<ProgressBar id="progress" bind:this={progress} color="#e79e6a" width="100%" />
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
@@ -45,11 +53,38 @@
 
 <style lang="scss" global>
 	@import '/node_modules/@unocss/reset/normalize.css';
+	@import '/node_modules/filepond/dist/filepond.css';
+	@import '/node_modules/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css';
+	//@import '/node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 	@import '../lib/theme/variables';
 	@import '../lib/theme/mixins';
 	@import '../lib/theme/core';
 
 	$panel-size: 33.5vw;
+
+	*::-webkit-scrollbar {
+		width: 0.75rem;
+	}
+	*::-webkit-scrollbar-track {
+		background: var(--theme-light);
+	}
+	*::-webkit-scrollbar-thumb {
+		background-color: #cccccc;
+		border-radius: 8px;
+		border: 3px solid var(--theme-light);
+	}
+
+	.filepond--drop-label {
+		color: var(--theme-green);
+		font-size: 1.76rem !important;
+	}
+	.filepond--panel-root {
+		background-color: var(--theme-blue);
+		height: 100px;
+	}
+	.filepond--file {
+		background-color: var(--theme-orange);
+	}
 
 	#app {
 		font-family: $font-family;
@@ -102,9 +137,11 @@
 							top: 0;
 							background-attachment: fixed;
 							background-repeat: no-repeat;
-							background-size: calc(35vw + 100px);
+							//background-size: calc(35vw + 100px) cover;
+							background-size: calc(35% + 100px);
 							width: $panel-size;
 							min-height: 100%;
+							background-position: bottom left;
 						}
 						.inner-fixed-container {
 							top: 0;
@@ -123,7 +160,6 @@
 						// 	//width: 50%;
 						// }
 
-
 						.inner-container .inner-left {
 							width: $panel-size;
 						}
@@ -131,7 +167,6 @@
 						.inner-container .inner-right {
 							width: calc(100% - $panel-size);
 						}
-
 					}
 				}
 			}

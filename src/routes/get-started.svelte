@@ -1,11 +1,36 @@
-<script context="module">
-	export async function load() {
-		const { default: faq } = await import('$lib/data/faq.json');
-		const { default: roles } = await import('$lib/data/roles.json');
+<script context="module" lang="ts">
+	/**
+	 * Load FAQ items
+	 */
+	export async function load({ fetch }: { fetch: any }) {
+		const API_URL = import.meta.env.VITE_API_URL;
+
+		const getFAQ = async () => {
+			const params = new URLSearchParams({
+				populate: '*'
+			});
+			const url = `${API_URL}/api/mc-faqs?${params.toString()}`;
+			const res = await fetch(url);
+			return await res.json();
+		};
+
+		const getRoles = async () => {
+			const params = new URLSearchParams({
+				populate: '*'
+			});
+			const url = `${API_URL}/api/mc-roles?${params.toString()}`;
+			const res = await fetch(url);
+			return await res.json();
+		};
+
+		const [{ data: faq }, { data: roles }] = await Promise.all([getFAQ(), getRoles()]);
+
+		//const { default: faq } = await import('$lib/data/faq.json');
+		// const { default: roles } = await import('$lib/data/roles.json');
 		return {
 			props: {
-				faq,
-				roles
+				faq: faq || [],
+				roles: roles || []
 			}
 		};
 	}
@@ -18,12 +43,16 @@
 	import ArrowDownIcon from '$lib/assets/icons/arrow_down.svg?component';
 
 	import LeftBgImg from '$lib/assets/images/background/people.jpg';
+	import LeftBgImg2 from '$lib/assets/images/background/hands.jpg';
+	import InnerLeftBgImg2 from '$lib/assets/images/background/ancient.jpg';
+
 	import { OverlayGradient } from '$lib/utils/theme';
 
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import IntersectionObserver from '$lib/components/IntersectionObserver.svelte';
 	import { fade } from 'svelte/transition';
 	import { Accordion, AccordionItem } from 'svelte-collapsible';
+	import Image from '$lib/components/Image.svelte';
 
 	export let faq: any[];
 	export let roles: any[];
@@ -61,16 +90,9 @@
 									on:click={() => (selectedRole = item)}
 									class:active={selectedRole?.id == item.id}
 								>
-									{#if item.icon == 'by-stander.png'}
-										<img class="" width="100" src="$lib/assets/icons/by-stander.png" alt="" />
-									{:else if item.icon == 'contributor.png'}
-										<img class="" width="100" src="$lib/assets/icons/contributor.png" alt="" />
-									{:else if item.icon == 'recommender.png'}
-										<img class="" width="100" src="$lib/assets/icons/recommender.png" alt="" />
-									{:else if item.icon == 'the-center.png'}
-										<img class="" width="100" src="$lib/assets/icons/the-center.png" alt="" />
-									{/if}
-									<span class="text-h4 font-bold mt-4">{item.name}</span>
+									<Image classes="" width="100" image={item?.icon} />
+
+									<span class="text-h4 font-bold text-uppercase mt-4">{item.name}</span>
 								</li>
 							{/each}
 						</ul>
@@ -83,36 +105,38 @@
 							<!-- <img width="100" src="$lib/assets/icons/by-stander-green.png" alt="" /> -->
 						</div>
 						<div class="divider-green" />
-						<span class="text-green text-h5 font-light">"{selectedRole?.resume}"</span>
+						<span class="text-green text-h5 font-light">"{selectedRole?.summary}"</span>
 						<span class="d-block text-dark font-bold mt-4">
-							Level of community participation: <strong class="ml-1 text-bold text-dark">X</strong>
+							Level of community participation: <strong class="ml-1 text-bold text-dark"
+								>{selectedRole?.comunity_participation_score}</strong
+							>
 						</span>
 						<span class="d-block text-dark font-bold mt-1">
 							Level of decision-making power shared: <strong class="ml-1 text-bold text-dark"
-								>X</strong
+								>{selectedRole?.decision_power_shared_score}</strong
 							>
 						</span>
 						<p class="mt-4 text-dark font-regular">
-							Most often, those impacted by strategic decisions are informed after the fact. They
-							understand what will happen going forward, but have little recourse to shape or change
-							what’s to come.
+							{selectedRole?.description}
 						</p>
 						<div class="mt-5">
 							<span class="text-uppercase">Links to further resources</span>
 							<div class="divider-green" />
 							<div class="d-flex align-center">
-								<div class="d-flex flex-column align-center mr-4">
-									<VideoIcon width="24" height="24" />
-									<span class="text-small text-uppercase mt-2">Video</span>
-								</div>
-								<div class="d-flex flex-column align-center mr-4">
-									<MicIcon width="24" height="24" />
-									<span class="text-small text-uppercase mt-2">Podcast</span>
-								</div>
-								<div class="d-flex flex-column align-center">
-									<DocIcon width="18" height="24" />
-									<span class="text-small text-uppercase mt-2">PDF</span>
-								</div>
+								{#each selectedRole?.links as link}
+									<a href={link.href} class="d-flex flex-column align-center mr-4">
+										{#if link.type == 'video'}
+											<VideoIcon width="24" height="24" />
+											<span class="text-dark text-small text-uppercase mt-2">Video</span>
+										{:else if link.type == 'pdf'}
+											<DocIcon width="18" height="24" />
+											<span class="text-dark text-small text-uppercase mt-2">PDF</span>
+										{:else if link.type == 'podcast'}
+											<MicIcon width="24" height="24" />
+											<span class="text-dark text-small text-uppercase mt-2">Podcast</span>
+										{/if}
+									</a>
+								{/each}
 							</div>
 						</div>
 					</div>
@@ -121,7 +145,7 @@
 		</div>
 	</section>
 	<IntersectionObserver let:top>
-		<section id="section-2" class="section bg-blue">
+		<section id="faq" class="section bg-blue">
 			<div class="content-split-container">
 				<div
 					class="inner-fixed-background bg-orange"
@@ -133,36 +157,74 @@
 						transition:fade={{ duration: 200, delay: 0 }}
 					>
 						<h1 class="text-white text-h1  mt-auto">
-							If you want your community to be The Center,
-							<strong class="font-bold">learn with us</strong>
+							Many share similar questions and concerns
+							<!-- <strong class="font-bold">learn with us</strong> -->
 						</h1>
 						<a class="btn btn-outline-green mr-auto" href="/case-study"> Read case studies </a>
 					</div>
 				{/if}
 
+				<div class="inner-container bg-white p-5">
+					<div class="faq-container w-75">
+						<h1 class="text-center text-h1 mb-5">Frequently Asked Questions</h1>
+						<Accordion bind:key={selectedFaq}>
+							{#each faq as item}
+								<AccordionItem key={item.id} class="mb-2">
+									<div
+										slot="header"
+										class="faq-item d-flex mb-2"
+										class:active={item.id == selectedFaq}
+									>
+										<span class="font-bold mr-auto">{item.question}</span>
+										<span class="arrow">
+											<ArrowDownIcon width="18" />
+										</span>
+									</div>
+									<p slot="body" class="mt-0 mb-2 text-dark">
+										{item.response}
+									</p>
+								</AccordionItem>
+							{/each}
+						</Accordion>
+					</div>
+					<!-- <div class="inner-left bg-white p-5">
+						
+					</div> -->
+					<!-- <div class="inner-right">
+						<ContactForm />
+					</div> -->
+				</div>
+			</div>
+		</section>
+	</IntersectionObserver>
+	<IntersectionObserver let:top>
+		<section id="section-3" class="section bg-blue">
+			<div class="content-split-container">
+				<div
+					class="inner-fixed-background"
+					style:background-image="{OverlayGradient}, url({LeftBgImg2})"
+				/>
+				{#if top < 200}
+					<div
+						class="inner-fixed-container d-flex flex-column p-5"
+						transition:fade={{ duration: 200 }}
+					>
+						<h1 class="text-green text-h1 mt-auto w-75">How has it been done?</h1>
+						<a class="btn btn-outline-green mr-auto" href="/case-study">Read Case Studies </a>
+					</div>
+				{/if}
 				<div class="inner-container">
-					<div class="inner-left bg-white p-5">
-						<div class="faq-container">
-							<h1 class="text-center text-h1 mb-5">Frequently Asked Questions</h1>
-							<Accordion bind:key={selectedFaq}>
-								{#each faq as item}
-									<AccordionItem key={item.id} class="mb-2">
-										<div
-											slot="header"
-											class="faq-item d-flex mb-2"
-											class:active={item.id == selectedFaq}
-										>
-											<span class="font-bold mr-auto">{item.question}</span>
-											<span class="arrow">
-												<ArrowDownIcon width="18" />
-											</span>
-										</div>
-										<p slot="body" class="mt-0 mb-2 text-dark">
-											{item.answer}
-										</p>
-									</AccordionItem>
-								{/each}
-							</Accordion>
+					<div
+						class="inner-left d-flex flex-column p-5"
+						style="background-image: {OverlayGradient}, url({InnerLeftBgImg2});"
+					>
+						<!-- <div class="overlay" style="background-image: url({GreenOverlayImg});" /> -->
+						<div class="background-overlay" />
+						<!-- <div class="overlay" style="background-image: url({DarkOverlayImg});" /> -->
+
+						<div class="content mt-auto d-flex flex-column">
+							<h1 class="text-light text-h1">Go further!</h1>
+							<a class="btn btn-outline-light mr-auto" href="/resources"> Resources </a>
 						</div>
 					</div>
 					<div class="inner-right">
@@ -175,6 +237,10 @@
 </div>
 
 <style lang="scss">
+	.inner-container .inner-left {
+		background-position: top;
+		background-size: cover;
+	}
 	.role-list .role-item {
 		cursor: pointer;
 	}

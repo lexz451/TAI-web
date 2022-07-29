@@ -7,7 +7,7 @@
 </script>
 
 <form class="h-100 d-flex flex-column">
-	<div class="d-flex flex-column bg-white p-5">
+	<div class="d-flex flex-column bg-surface p-5">
 		<div class="d-flex">
 			<div class="w-50 d-flex align-center mr-4">
 				<IconDoc width="20" />
@@ -31,8 +31,8 @@
 		<div class="d-flex mt-5">
 			<div class="filters mr-4">
 				<small class="font-bold">FILTERS</small>
-				<input class="mt-3 bg-surface" type="text" placeholder="Date" />
-				<select name="" id="" class="mt-2 bg-surface">
+				<input class="mt-3 bg-white" type="text" placeholder="Date" />
+				<select name="" id="" class="mt-2 bg-white">
 					<option default>Author</option>
 					<option>Author 1</option>
 					<option>Author 2</option>
@@ -41,7 +41,7 @@
 			</div>
 			<div class="sort">
 				<small class="font-bold">SORT BY</small>
-				<select name="" id="" class="mt-3 bg-surface">
+				<select name="" id="" class="mt-3 bg-white">
 					<option>Relevance</option>
 					<option>Latest</option>
 					<option>Oldest</option>
@@ -49,7 +49,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="contact d-flex flex-column bg-surface p-5">
+	<div class="contact d-flex flex-column bg-white p-5">
 		<small class="text-bold mb-2">CONTACT US</small>
 		<input class="form-control" type="text" name="name" placeholder="Name" />
 		<input class="form-control" type="email" name="email" placeholder="Email" />

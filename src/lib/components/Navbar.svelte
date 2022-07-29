@@ -6,8 +6,9 @@
 
 	let showLogoWhite = false;
 
+	// TODO: Better approach
 	$: showLogoWhite =
-		$page.url.pathname.includes('/get-started') || $page.url.pathname.includes('/resources');
+		$page.url.pathname.includes('/get-started') || $page.url.pathname.includes('/case-study') || ($page.url.pathname.includes('/resources') && !$page.url.pathname.includes('/submit'));
 </script>
 
 <nav class="navbar">
