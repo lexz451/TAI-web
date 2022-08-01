@@ -9,6 +9,9 @@ import svg from '@poppanator/sveltekit-svg';
 
 /** @type {import('vite').UserConfig} */
 const config = {
+	ssr: {
+		noExternal: ['svelte-forms']
+	},
 	plugins: [
 		sveltekit(),
 		imagetools({

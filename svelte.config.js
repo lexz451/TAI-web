@@ -10,7 +10,7 @@ const config = {
 	// for more information about preprocessors
 	preprocess: seqPreprocessor([preprocess(), importAssets()]),
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
 	}
 };
 
