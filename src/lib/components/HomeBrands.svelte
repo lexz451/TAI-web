@@ -1,12 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import IntersectionObserver from './IntersectionObserver.svelte';
-
 	import LeftBgImg from '$lib/assets/images/background/hands.jpg';
-
-	import DashedWhite from '$lib/assets/images/brands/dashed.png';
-	import DashedGreen from '$lib/assets/images/brands/dashed-green.png';
-
 	import { OverlayGradient } from '$lib/utils/theme';
 </script>
 
@@ -36,35 +31,15 @@
 					<a href="/case-study" class="btn btn-outline-green mr-auto mt-3">Read case studies</a>
 				</div>
 			{/if}
-			<div class="fixed-container">
-				<div class="inner-container">
-					<div class="brand-circles">
-						<div class="brand-circle bg-white p-4">
-							<img
-								class="inner_image"
-								src="$lib/assets/images/brands/frida.png"
-								alt="Frida Feminist Fund"
-							/>
-						</div>
-						<div class="brand-circle bg-white p-4">
-							<img
-								class="inner_image"
-								src="$lib/assets/images/brands/porposeful.png"
-								alt="Porposeful"
-							/>
-						</div>
-						<div class="brand-circle">
-							<img src="$lib/assets/images/brands/femnet.png" alt="Empty circle" />
-						</div>
-						<div class="brand-circle p-4" style:background-image="url({DashedWhite})"
-							style="background-size: contain;">
-							<img class="inner_image" src="$lib/assets/images/brands/care.png" alt="Dashed circle" />
-						</div>
-						<div class="brand-circle p-4" style:background-image="url({DashedGreen})"
-						style="background-size: contain;">
-							<img  class="inner_image" src="$lib/assets/images/brands/wikimedia.png" alt="Placeholder circle" />
-						</div>
-					</div>
+			<div class="inner-container">
+				<div class="brand-circles">
+					<img class="brand-circle" src="$lib/assets/images/brand/apc.png" alt="">
+					<img class="brand-circle" src="$lib/assets/images/brand/care.png" alt="">
+					<img class="brand-circle" src="$lib/assets/images/brand/femnet.png" alt="">
+					<img class="brand-circle" src="$lib/assets/images/brand/flower.png" alt="">
+					<img class="brand-circle" src="$lib/assets/images/brand/frida.png" alt="">
+					<img class="brand-circle" src="$lib/assets/images/brand/porposeful.png" alt="">
+					<img class="brand-circle" src="$lib/assets/images/brand/wikimedia.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -74,55 +49,73 @@
 <style lang="scss">
 	#brands-section {
 		opacity: 0;
-		height: 120vh;
+		height: 150vh;
 		&.visible {
 			opacity: 1;
 		}
 		.brand-circles {
 			position: relative;
 			width: 100%;
-			min-height: 100vh;
+			min-height: 150vh;
 		}
 		.brand-circles .brand-circle {
-			width: 200px;
-			height: 200px;
+			width: 240px;
+			height: 240px;
 			border-radius: 50%;
 			overflow: hidden;
 			display: flex;
-		}
-		.brand-circles .brand-circle img {
-			image-rendering: optimizeQuality;
-		}
-		.brand-circles .brand-circle img.inner_image {
-			width: 90%;
-			height: 90%;
-			margin: auto;
+			object-position: center;
 			object-fit: contain;
 		}
-		.brand-circles .brand-circle:nth-child(1) {
-			position: absolute;
-			right: 25%;
-			top: 10%;
+		.brand-circles .brand-circle {
+			image-rendering: optimizeQuality;
 		}
+		
+		// WIKIMEDIA
+		.brand-circles .brand-circle:nth-child(7) {
+			position: absolute;
+			left: 40%;
+			bottom: 50%;
+		}
+		// PORPOSEFUL
+		.brand-circles .brand-circle:nth-child(6) {
+			position: absolute;
+			right: 10%;
+			bottom: 35%;
+		}
+		// FLOWER
+		.brand-circles .brand-circle:nth-child(4) {
+			position: absolute;
+			right: 20%;
+			bottom: 10%;
+		}
+		// CARE
 		.brand-circles .brand-circle:nth-child(2) {
 			position: absolute;
-			right: 15%;
-			bottom: 20%;
+			left: 10%;
+			bottom: 35%;
 		}
+		//FEMNET
 		.brand-circles .brand-circle:nth-child(3) {
 			position: absolute;
 			left: 10%;
-			top: 20%;
+			top: 16%;
+			//display: none;
 		}
-		.brand-circles .brand-circle:nth-child(4) {
-			position: absolute;
-			left: 10%;
-			bottom: 15%;
-		}
+		
+		// FRIDA
 		.brand-circles .brand-circle:nth-child(5) {
 			position: absolute;
-			right: 45%;
-			bottom: 40%;
+			top: 10%;
+			right: 20%;
 		}
+		
+		// APC	
+		.brand-circles .brand-circle:nth-child(1) {
+			position: absolute;
+			left: 18%;
+			bottom: 5%;
+		}
+		
 	}
 </style>
